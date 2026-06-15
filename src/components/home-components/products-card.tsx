@@ -8,10 +8,10 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "../ui/carousel";
-import { Button } from "../ui/button";
 import { Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { routes } from "@/config/routes";
+import { CartButton } from "@/cart/cart-add-button";
 
 export const ProductsCard = () => {
     const { data } = useGetProductsQuery({
@@ -23,12 +23,12 @@ export const ProductsCard = () => {
         <Carousel opts={{
             align: "start",
           }}
-          className="w-full max-w-screen-md">
-            <CarouselContent>
+          className="w-full max-w-[1250px]">
+            <CarouselContent className="width-full flex gap-4">
                 {data?.map((product, index) => (
-                    <Link  to={`${routes.home}/${product.id}`}>
+                    <Link key={product.id} to={`${routes.home}/${product.id}`}>
                         <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
-                            <Card key={product.id} className="border border-gray-200 rounded-lg shadow-lg h-[300px] w-[200px] flex flex-col justify-between">
+                            <Card className="border border-gray-200 rounded-lg shadow-lg h-[300px] w-[200px] flex flex-col justify-between">
                                 <div className="flex justify-center items-center h-1/2 ">
                                     <img
                                         src={product.images[1]}
@@ -46,9 +46,7 @@ export const ProductsCard = () => {
                                 </CardHeader>
                                 <CardContent className="flex items-center justify-between">
                                     <div className="flex text-green-500"><span><Star className="w-[15px]" /></span>4.8<span></span></div>
-                                    <Button className="bg-green-500 hover:bg-green-600 transition text-white px-3 py-1 rounded-full text-lg">
-                                        +
-                                    </Button>
+                                    <CartButton data={product} />
                                 </CardContent>
                             </Card>
                         </CarouselItem>

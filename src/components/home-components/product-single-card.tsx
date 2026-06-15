@@ -42,7 +42,7 @@ export const SingleProductComponent = () => {
                     <p className="text-gray-500 ">
                         {trunc(product.description, 100)}
                     </p>
-                    <p>price:<span>{product.price}</span></p>
+                    <p>price:$<span>{product.price * count}</span></p>
                 </div>
                 <div className="flex gap-16">
                     <div className="flex gap-2">

@@ -12,7 +12,7 @@ export const ProductsFilter = () => {
         title: searchTerm,
     });
 
-    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement> ) => {
         setSearchTerm(e.target.value);
     };
 

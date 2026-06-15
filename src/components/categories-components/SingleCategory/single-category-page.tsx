@@ -8,7 +8,7 @@ export const SingleCategoryPage = () => {
 
     return (
         <section className="p-5">
-            <div key={category?.id}>
+            <div>
                 <p className="text-start text-2xl font-bold mb-4">{category?.name}</p>
                 <SingleCategoryCards id={Number(id)} />
             </div>
